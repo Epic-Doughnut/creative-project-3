@@ -22,7 +22,12 @@
       </div>
     </div>
     <router-view />
+
+    <footer>
+      <hr>
+      <a href = "https://github.com/Epic-Doughnut/creative-project-3.git">GitHub</a></footer>
   </div>
+
 </template>
 
 <script>
