@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-// import Browse from '../views/Browse.vue'
-// import Cart from '../views/Cart.vue'
+import Admire from '../views/Admire.vue'
+import Help from '../views/Help.vue'
 
 Vue.use(VueRouter)
 
@@ -12,16 +12,16 @@ const routes = [
     name: 'Home',
     component: Home
   },
-  // {
-  //   path: '/browse',
-  //   name: 'Browse',
-  //   component: Browse
-  // },
-  // {
-  //   path: '/cart',
-  //   name: "Cart",
-  //   component: Cart
-  // },
+  {
+    path: '/admire',
+    name: 'Admire',
+    component: Admire
+  },
+  {
+    path: '/help',
+    name: 'Help',
+    component: Help
+  }
 ]
 
 const router = new VueRouter({

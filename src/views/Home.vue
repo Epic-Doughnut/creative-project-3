@@ -7,7 +7,7 @@
         </form>
       </div>
     </div>
-    <colorList :colors="colors" />
+    <Colors :colors="colors" />
   </div>
 </template>
 
@@ -27,7 +27,13 @@ export default {
   computed: {
     colors() {
       return this.$root.$data.colors.filter(color => color.name.toLowerCase().search(this.searchText) >= 0);
-    }
+    },
+    style(){
+      return {
+        '--backgroundColor': this.$root.$data.admired
+      }
+    },
+
   }
 }
 </script>

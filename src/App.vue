@@ -3,20 +3,20 @@
     <div id="menu">
       <div id="brand">
         <router-link to="/">
-          <img src="/images/logo.png">
+          <img src="../images/browse.png">
         </router-link>
       </div>
       <div id="side">
-        <router-link to="/browse">
+        <router-link to="/help">
           <div class="menu-item browse">
-            <img src="/images/globe.png">
-            <p>Browse</p>
+            <img src="../images/help.png">
+            <p><strong>HELP</strong></p>
           </div>
         </router-link>
-        <router-link to="/cart">
+        <router-link to="/admire">
           <div class="menu-item">
-            <img src="/images/love.png">
-            <p>{{numInCart}}</p>
+            <img src="../images/admire.png">
+            <div class="admired" :style="'background-color:'+admired+';'"></div>
           </div>
         </router-link>
       </div>
@@ -29,8 +29,8 @@
   export default{
     name: "App",
     computed:{
-      numInCart(){
-        return this.$root.$data.cart.length;
+      admired(){
+        return this.$root.$data.admired;
       }
     }
   }
@@ -55,7 +55,7 @@ body {
 }
 
 #menu a {
-  color: #B84901;
+  color: #ff0000;
 }
 
 #brand {
@@ -89,5 +89,10 @@ body {
 
 .browse {
   margin-right: 50px;
+}
+
+.admired{
+  width: 20px;
+  height: 20px;
 }
 </style>

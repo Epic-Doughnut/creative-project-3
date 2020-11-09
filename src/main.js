@@ -5,7 +5,7 @@ import mock from './mock-data.js'
 
 let data = {
   colors: mock,
-  cart: []
+  admired: "#000000",
 }
 
 Vue.config.productionTip = false

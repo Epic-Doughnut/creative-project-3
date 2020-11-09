@@ -1,17 +1,15 @@
 <template>
 <div class="wrapper">
-  <div class="products">
-    <div class="product" v-for="color in colors" :key="product.id">
-      <div class="info">
-        <h1>{{product.name}}</h1>
-        <p>{{product.country}}</p>
+  <div class="colors">
+    <div class="color" v-for="color in colors" :key="color.id">
+      <div class="info" :style="'background-color:'+ color.color+';'">
       </div>
-      <div class="image">
-        <img :src="'/images/products/'+product.image">
-      </div>
+
       <div class="price">
-        <h2>{{product.price}}</h2>
-        <button class="auto" v-on:click="addToCart(product)">Add to Cart</button>
+        <h2>{{color.name}}</h2>
+        <p>{{color.color}}</p>
+
+        <button class="auto" v-on:click="admire(color.color)">Admire</button>
       </div>
     </div>
   </div>
@@ -27,8 +25,16 @@ export default {
   },
 
   methods:{
-    addToCart(color){
-      this.$root.$data.cart.push(color);
+    admire(color){
+      this.$root.$data.admired = color;
+    },
+  },
+
+  computed:{
+    style(){
+      return {
+        '--backgroundColor': this.$root.$data.admired
+      };
     },
   }
 }
@@ -41,27 +47,28 @@ export default {
   justify-content: center;
 }
 
-.products {
+.colors {
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.product {
+.color {
   margin: 10px;
   margin-top: 50px;
   width: 200px;
+  background-color: var(--backgroundColor);
 }
 
-.product img {
+.color img {
   border: 2px solid #333;
-  height: 250px;
-  width: 200px;
+  height: 100px;
+  width: 100px;
   object-fit: cover;
 }
 
-.product .image {
+.color .image {
   display: flex;
   justify-content: center;
   margin-bottom: 5px;
